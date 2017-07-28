@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leccions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Content</th>
+      <th>Video</th>
+      <th>Curso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leccions.each do |leccion| %>
+      <tr>
+        <td><%= leccion.number %></td>
+        <td><%= leccion.title %></td>
+        <td><%= leccion.summary %></td>
+        <td><%= leccion.content %></td>
+        <td><%= leccion.video %></td>
+        <td><%= leccion.curso_id %></td>
+        <td><%= link_to 'Show', leccion %></td>
+        <td><%= link_to 'Edit', edit_leccion_path(leccion) %></td>
+        <td><%= link_to 'Destroy', leccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leccion', new_leccion_path %>

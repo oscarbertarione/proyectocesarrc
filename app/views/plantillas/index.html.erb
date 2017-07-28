@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default" >
+      <div class="container" id="navbar2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="tog">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo.fw.png" class="logo" alt="logo"></a>
+        </div>
+
+        <div  class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/cursos/">Cursos</a></li>
+            <li><a href="/panel/index/">Apuntes</a></li>
+            <li><a href="/plantillas/">Plantillas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div id="main2">
+    <div class="container" >
+      <h1 id="h1curso">Plantillas</h1>
+      <img src="/assets/separator.fw.png" id="separator">
+    </div>
+  </div>
+
+  <div id="main3">
+    <div class="container" >
+      <div class="row" >
+      <% @plantillas.each do |plantilla| %>
+        <div class="col-md-4" >
+          <div id="white" class="shadow">
+            <img src="/assets/iconopdf.fw.png" class="iconocurso2">
+            <h2 class="h2a"><%= plantilla.title %></h2>
+            <p class="pa" id="pa"><%= plantilla.summary %></p>
+            <%= link_to 'Descargar', plantilla.file.url, target: '_blank', :id => "boton" %>
+            <a href="" id="previa">Vista previa</a>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    
+  <footer>
+  </footer>

@@ -1,0 +1,65 @@
+  <nav class="navbar navbar-default" >
+      <div class="container" id="navbar2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="tog">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo.fw.png" class="logo" alt="logo"></a>
+        </div>
+
+        <div  class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/cursos/">Cursos</a></li>
+            <li><a href="/panel/index/">Apuntes</a></li>
+            <li><a href="/plantillas/">Plantillas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div id="main2">
+    <div class="container" >
+      <h1 id="h1curso">Nuestros Cursos</h1>
+      <img src="/assets/separator.fw.png" id="separator">
+    </div>
+  </div>
+
+  <div id="main3">
+    <div class="container" >
+      <div class="row" >
+
+        <% @cursos.each do |curso| %>
+        <div class="col-md-6">
+          <div id="white" class="shadow99">
+            <%= image_tag curso.icon.url(:thumb), :id => "cursoimg" %>
+            <div id="cursodiv">
+              <h2 id="cursodivh2"><%= curso.title %></h2>
+              <p id="cursodivp"><%= curso.summary %></p>
+            </div>
+            <div id="line"></div>
+            <h2 id="cursodivh2">Lecciones</h2>
+            <% curso.leccions.each do |leccion| %>
+            <div class="block">
+              <a id="cursoa" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#curso<%= leccion.id %>" aria-expanded="false" aria-controls="curso<%= leccion.id %>"><p id="cursodivp2"><%= leccion.title %></p><img src="/assets/arrow.fw.png" id="arrow2"></a>
+              <div id="curso<%= leccion.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" >
+                <div id="divp3"><p id="cursodivp3"><%= leccion.summary %></p></div>
+              </div>
+            </div>
+            <% end %>
+            
+            <%= link_to 'Ir al curso', curso, :id => "boton" %>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+        
+  <footer>
+  </footer>
+

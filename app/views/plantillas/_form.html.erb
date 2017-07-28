@@ -1,0 +1,32 @@
+<%= form_with(model: plantilla, local: true) do |form| %>
+  <% if plantilla.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plantilla.errors.count, "error") %> prohibited this plantilla from being saved:</h2>
+
+      <ul>
+      <% plantilla.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :plantilla_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary, id: :plantilla_summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :curso_id %>
+    <%= form.number_field :curso_id, id: :plantilla_curso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

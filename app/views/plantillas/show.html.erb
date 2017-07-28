@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @plantilla.title %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @plantilla.summary %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @plantilla.curso_id %>
+</p>
+
+<%= link_to 'Edit', edit_plantilla_path(@plantilla) %> |
+<%= link_to 'Back', plantillas_path %>

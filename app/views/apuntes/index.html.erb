@@ -1,0 +1,70 @@
+<nav class="navbar navbar-default" >
+      <div class="container" id="navbar2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="tog">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo.fw.png" class="logo" alt="logo"></a>
+        </div>
+
+        <div  class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/cursos/">Cursos</a></li>
+            <li><a href="/apuntes/">Apuntes</a></li>
+            <li><a href="/plantillas/">Plantillas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+    <div id="main2">
+    <div class="container" >
+      <h1 id="h1curso">Apuntes</h1>
+      <img src="/assets/separator.fw.png" id="separator">
+    </div>
+  </div>
+
+  <div id="main5">
+    <div class="container" >
+
+    <% for apunte in @apuntes %>
+      <div class="row" >
+        <div class="col-md-12" >
+          
+          <div id="white3" class="top" >
+
+            <a id="cursoa" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#apunte<%= apunte.id %>" aria-expanded="false" aria-controls="apunte<%= apunte.id %>">
+              <div id="apuntediv">
+                <%= image_tag apunte.leccion.curso.icon.url(:thumb), :id => "apunteimg" %>
+                <h2 id="apunteh2"><%= apunte.leccion.curso.title %><br>
+                <span><%= apunte.leccion.title %></span>
+                </h2>
+              </div>
+              <img src="/assets/arrow.fw.png" id="arrow3">
+            </a>
+            
+            <div class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" id="apunte<%= apunte.id %>">
+              <div class="apuntescont2" >
+                <div class="apuntenumero">
+                  <img src="/assets/iconocurso.fw.png" class="iconocurso">
+                  <div class="apuntedos">
+                    <p class="pa"><%= apunte.content %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+        
+  <footer>
+  </footer>
+

@@ -1,0 +1,16 @@
+  <%= form_for([@leccion, @leccion.apuntes.build]) do |f| %>
+
+  <div class="field" id="fieldapunte">
+  <p>Escribe tus apuntes</p>
+    <%= f.text_area :content, id: :apunte_content %>
+  </div>
+
+  <div class="field" id="hidden">
+    <%= f.label :leccion_id %>
+    <%= f.number_field :leccion_id, id: :apunte_leccion_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :id => "boton4", :value => "Tomar apunte" %>
+  </div>
+<% end %>

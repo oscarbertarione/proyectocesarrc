@@ -1,0 +1,120 @@
+<nav class="navbar navbar-default" >
+      <div class="container" id="navbar2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="tog">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo.fw.png" class="logo" alt="logo"></a>
+        </div>
+
+        <div  class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/cursos/">Cursos</a></li>
+            <li><a href="/panel/index/">Apuntes</a></li>
+            <li><a href="/plantillas/">Plantillas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+<div id="blue">
+  <div id="leftc">
+  <div id="main7">
+    <div class="container-fluid" >
+      <div class="row" >
+        <div class="col-md-12" >
+            <div id="white5" >
+              <%= image_tag @leccion.icon.url(:thumb), :id => "cursoimg" %>
+              <div id="lecdiv">
+                <h2 id="lech2">Lección <%= @leccion.number %></h2>
+                <h1 id="lech1"><%= @leccion.title %></h1>
+              </div>
+              <% if @leccion.video.blank? %>
+              <% else %>
+                <div id="youtube">
+                  <iframe src="https://player.vimeo.com/video/<%= @leccion.video %>?color=ffffff&title=0&byline=0&portrait=0" id="frame" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+              <% end %>
+              <p id="lecp">
+                <%= @leccion.content %>
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="main6">
+    <div class="container-fluid" >
+      <div class="row" >
+        <div class="col-md-12" >
+          <div id="whiteapunte" class="top" >
+            <h3 class="h1a2" >Apuntes</h3>
+            <ul role="tablist" id="nav-tab">
+              <li role="presentation" class="active"><a href="#apuntescont" aria-controls="apuntescont" role="tab" data-toggle="tab">Mis Apuntes</a></li>
+              <li role="presentation"><a href="#profile99" aria-controls="profile99" role="tab" data-toggle="tab">Nuevo Apunte</a></li>
+            </ul>
+            <div class="tab-content">
+
+              <div id="apuntescont" role="tabpanel" class="tab-pane active">
+              <% if @leccion.apuntes.blank? %>
+              <h3>Por los momentos no tienes apuntes para esta lección.</h3>
+              <% else %>
+              <% @leccion.apuntes.each do |apunte| %>
+                <div class="apuntenumero">
+                  <img src="/assets/iconocurso.fw.png" class="iconocurso">
+                  <div class="apuntelec">
+                    <p class="pa"><%= apunte.content %></p>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="profile99">
+                <%= render 'apuntes/form' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="leftr">
+<span id="cursor" onclick="openNav()">&#9776;</span>
+</div>
+</div>
+
+
+  <footer>
+  </footer>
+  
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <% @leccion.curso.leccions.each do |leccion| %>
+    <%= link_to leccion do %>
+      <img src="/assets/iconolec.fw.png" id="cursoimg">
+        <div id="lecdiv2">
+          <p id="lech21">Lección <%= leccion.number %></p>
+          <p id="lech11"><%= leccion.title %></p>
+        </div>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+</script>

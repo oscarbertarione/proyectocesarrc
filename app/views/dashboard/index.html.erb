@@ -1,0 +1,114 @@
+<nav class="navbar navbar-default" >
+      <div class="container" id="navbar2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="tog">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo.fw.png" class="logo" alt="logo"></a>
+        </div>
+
+        <div  class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/cursos/">Cursos</a></li>
+            <li><a href="/panel/index/">Apuntes</a></li>
+            <li><a href="/plantillas/">Plantillas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div id="main">
+    <div class="container" >
+      <div class="row" >
+          <div class="col-md-4" >
+            <div id="white" >
+              <h1 class="h1a" id="center">Continua donde te quedaste</h1>
+             
+              <%= image_tag @leccion.icon.url(:thumb), :class => "icono" %>
+              <h2 class="h2a"><%= @leccion.title %></h2>
+              <p class="pa" id="pa"><%= @leccion.summary %></p>
+              <%= link_to 'Ir al curso', @leccion, :id => "boton" %>
+         
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div id="white2" >
+              <h1 class="h1a" >Mis Cursos</h1>
+              <div class="cincuenta" id="lineright">
+                <img src="/assets/icono.fw.png" class="icono">
+                <h2 class="h2a">1: Titulo de la lección</h2>
+                <div class="progreso">
+                  <img src="/assets/50.fw.png" class="bar">
+                  <p class="bartxt">50%</p>
+                  <p class="vistas">5/10 Lecciones Vistas</p>
+                  <a href="" id="boton">Continuar curso</a>
+                </div>
+              </div>
+              <div class="cincuenta">
+                <img src="/assets/icono.fw.png" class="icono">
+                <h2 class="h2a">1: Titulo de la lección</h2>
+                <div class="progreso">
+                  <img src="/assets/50.fw.png" class="bar">
+                  <p class="bartxt">50%</p>
+                  <p class="vistas">5/10 Lecciones Vistas</p>
+                  <a href="" id="boton">Continuar curso</a>
+                </div>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" >
+                <div class="cincuenta" id="lineright">
+                <img src="/assets/icono.fw.png" class="icono">
+                <h2 class="h2a">1: Titulo de la lección</h2>
+                <div class="progreso">
+                  <img src="/assets/50.fw.png" class="bar">
+                  <p class="bartxt">50%</p>
+                  <p class="vistas">5/10 Lecciones Vistas</p>
+                  <a href="" id="boton">Continuar curso</a>
+                </div>
+              </div>
+              <div class="cincuenta">
+                <img src="/assets/icono.fw.png" class="icono">
+                <h2 class="h2a">1: Titulo de la lección</h2>
+                <div class="progreso">
+                  <img src="/assets/50.fw.png" class="bar">
+                  <p class="bartxt">50%</p>
+                  <p class="vistas">5/10 Lecciones Vistas</p>
+                  <a href="" id="boton">Continuar curso</a>
+                </div>
+              </div>
+              </div>
+              <div id="arrowsection">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><img src="/assets/arrow.fw.png" id="arrow"></a>
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <div class="row" >
+        <div class="col-md-12" >
+          <div id="white" class="top" >
+            <h3 class="h1a" >Mis Ultimos Apuntes</h3>
+            <div id="apuntescont">
+            <% @apunte.each do |apunte| %>
+              <div class="apuntenumero">
+                <img src="/assets/iconocurso.fw.png" class="iconocurso">
+                <div class="apuntedos">
+                  <p class="apuntitulo"><%= apunte.leccion.curso.title %></p>
+                  <p class="pa"><%= apunte.content %></p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <a href="/panel/index/" id="boton2">Ver todos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+  </footer>

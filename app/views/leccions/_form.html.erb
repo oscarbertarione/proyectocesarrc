@@ -1,0 +1,47 @@
+<%= form_with(model: leccion, local: true) do |form| %>
+  <% if leccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leccion.errors.count, "error") %> prohibited this leccion from being saved:</h2>
+
+      <ul>
+      <% leccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :leccion_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :leccion_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary, id: :leccion_summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :leccion_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video, id: :leccion_video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :curso_id %>
+    <%= form.number_field :curso_id, id: :leccion_curso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
